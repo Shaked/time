@@ -2,11 +2,10 @@ language: php
 php:
   - '7.0'
   - '7.1'
-  - hhvm
   - nightly
 os:
 - linux
 install:
 - composer update
 script:
-- php ./test/DurationTest.php
+- ./vendor/bin/phpunit ./test

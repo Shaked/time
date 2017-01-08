@@ -8,7 +8,7 @@ The code is very much influenced by the [Go time package](https://golang.org/pkg
 
 ## Usage
 
-@see [DurationTest](test/DurationTest.php) for more information.
+@see [TimeTest](test/TimeTest.php) for more information.
 
 ```
 $n = 60;
