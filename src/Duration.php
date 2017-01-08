@@ -132,8 +132,52 @@ class Duration {
     // Leading zero units are omitted. As a special case, durations less than one
     // second format use a smaller unit (milli-, micro-, or nanoseconds) to ensure
     // that the leading digit is non-zero. The zero duration formats as 0s.
-    public function __toString() {
-        throw new NotSupportedException('Todo: https://golang.org/src/time/time.go?s=13914:13933#L417');
+    public function __toString()
+    {
+        if ($this->n == 0) {
+            return "0s";
+        }
+
+        $u = $this->n;
+        $buf = '';
+
+        if ($u < self::Second) {
+            if ($u < self::Microsecond) {
+                $buf = $u.'ns';
+            } elseif ($u < self::Millisecond) {
+                $buf = (float) sprintf("%.3f", $u/self::Microsecond);
+                $buf .= 'µs';
+            } else {
+                $buf = (float) sprintf("%.6f", $u/self::Millisecond);
+                $buf .= 'ms';
+            }
+
+            return $buf;
+        }
+
+        $dimensions = [
+            self::Hour => 'h',
+            self::Minute => 'm',
+        ];
+
+        $print = false;
+        foreach ($dimensions as $dur => $suffix) {
+            if ($u >= $dur) {
+                $d = intdiv($u, $dur);
+                $buf .= $d;
+                $buf .= $suffix;
+                $u = fmod($u, $dur);
+                $print = true;
+            } elseif ($print) {
+                $buf .= "0".$suffix;
+            }
+        }
+
+        $s = (float) sprintf("%0.9f", $u/self::Second);
+        $buf .= $s.'s';
+
+
+        return $buf;
     }
 
 }
