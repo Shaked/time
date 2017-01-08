@@ -1,0 +1,29 @@
+{
+    "name": "Shaked/time",
+    "type": "package",
+    "description": "PHP time package",
+    "license": "MIT",
+    "keywords": ["time", "sleep"],
+    "homepage": "https://github.com/Shaked/time",
+    "authors": [
+        {
+            "name": "Shaked Klein Orbach",
+            "email": "klein.shaked@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Shaked/time/issues",
+        "source": "https://github.com/Shaked/time"
+    },
+    "require":{
+        "php": ">=7.0.0"
+    },
+	"require-dev": {
+		"phpunit/phpunit": "5.7.*"
+	},
+    "autoload": {
+        "psr-4": {
+            "Shaked\\Time\\": "src/"
+        }
+    }
+}

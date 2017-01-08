@@ -1,0 +1,12 @@
+language: php
+go:
+- 7.0
+- 7.1
+- tip
+os:
+- linux
+- osx
+install:
+- composer update
+script:
+- php ./test/DurationTest.php
