@@ -1,5 +1,7 @@
 # PHP time package
 
+[![Build Status](https://travis-ci.org/Shaked/time.svg?branch=master)](https://travis-ci.org/Shaked/time)
+
 The purpose of this package is to help developers to write a more readable PHP code while being able to easily test it.
 
 The code is very much influenced by the [Go time package](https://golang.org/pkg/time/).
