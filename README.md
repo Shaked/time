@@ -11,6 +11,12 @@ The code is very much influenced by the [Go time package](https://golang.org/pkg
 @see [TimeTest](test/TimeTest.php) for more information.
 
 ```
+<?php
+
+require_once 'vendor/autoload.php';
+
+use Shaked\Time\Duration;
+
 $n = 60;
 
 $durations = [
@@ -22,8 +28,16 @@ $durations = [
     'hour'        => Duration::hour($n),
 ];
 
-foreach($durations as $duration) {
+foreach ($durations as $duration) {
     (new Sleep())->for($duration);
+    echo (string) $duration . PHP_EOL;
 }
+
+// 60ns
+// 60µs
+// 60ms
+// 1m0s
+// 1h0m0s
+// 60h0m0s
 ```
 
