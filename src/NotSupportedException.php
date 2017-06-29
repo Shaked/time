@@ -1,5 +1,5 @@
 <?php
-namespace Shaked\Time;
+namespace shaked\time;
 
 /**
  * @author Shaked Klein Orbach <klein.shaked at gmail.com>

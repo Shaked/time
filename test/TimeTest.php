@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
-use Shaked\Time\Duration;
-use Shaked\Time\Sleep;
+use shaked\time\Duration;
+use shaked\time\Sleep;
 
 class TimeTest extends PHPUnit_Framework_TestCase {
     /**

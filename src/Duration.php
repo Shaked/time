@@ -1,5 +1,5 @@
 <?php
-namespace Shaked\Time;
+namespace shaked\time;
 
 /**
  * @author Shaked Klein Orbach <klein.shaked at gmail.com>
@@ -132,10 +132,12 @@ class Duration {
     // Leading zero units are omitted. As a special case, durations less than one
     // second format use a smaller unit (milli-, micro-, or nanoseconds) to ensure
     // that the leading digit is non-zero. The zero duration formats as 0s.
-    public function __toString()
-    {
+    /**
+     * @return mixed
+     */
+    public function __toString() {
         if ($this->n == 0) {
-            return "0s";
+            return '0s';
         }
 
         $u = $this->n;
@@ -143,12 +145,12 @@ class Duration {
 
         if ($u < self::Second) {
             if ($u < self::Microsecond) {
-                $buf = $u.'ns';
+                $buf = $u . 'ns';
             } elseif ($u < self::Millisecond) {
-                $buf = (float) sprintf("%.3f", $u/self::Microsecond);
+                $buf = (float) sprintf('%.3f', $u / self::Microsecond);
                 $buf .= 'µs';
             } else {
-                $buf = (float) sprintf("%.6f", $u/self::Millisecond);
+                $buf = (float) sprintf('%.6f', $u / self::Millisecond);
                 $buf .= 'ms';
             }
 
@@ -156,7 +158,7 @@ class Duration {
         }
 
         $dimensions = [
-            self::Hour => 'h',
+            self::Hour   => 'h',
             self::Minute => 'm',
         ];
 
@@ -169,13 +171,12 @@ class Duration {
                 $u = fmod($u, $dur);
                 $print = true;
             } elseif ($print) {
-                $buf .= "0".$suffix;
+                $buf .= '0' . $suffix;
             }
         }
 
-        $s = (float) sprintf("%0.9f", $u/self::Second);
-        $buf .= $s.'s';
-
+        $s = (float) sprintf('%0.9f', $u / self::Second);
+        $buf .= $s . 's';
 
         return $buf;
     }

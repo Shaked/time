@@ -1,5 +1,5 @@
 {
-    "name": "Shaked/time",
+    "name": "shaked/time",
     "type": "package",
     "description": "PHP time package",
     "license": "MIT",
@@ -23,7 +23,7 @@
 	},
     "autoload": {
         "psr-4": {
-            "Shaked\\Time\\": "src/"
+            "shaked\\time\\": "src/"
         }
     }
 }
