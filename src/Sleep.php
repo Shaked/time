@@ -23,10 +23,10 @@ class Sleep {
             sleep($duration->seconds());
             break;
         case Duration::Minute:
-            sleep($duration->minutes());
+            sleep($duration->seconds());
             break;
         case Duration::Hour:
-            sleep($duration->hours());
+            sleep($duration->seconds());
             break;
         }
     }
