@@ -17,7 +17,7 @@ class Sleep {
             usleep($duration->microseconds());
             break;
         case Duration::Millisecond:
-            usleep($duration->milliseconds());
+            usleep($duration->microseconds());
             break;
         case Duration::Second:
             sleep($duration->seconds());
